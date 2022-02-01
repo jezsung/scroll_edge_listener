@@ -70,17 +70,22 @@ class _ScrollEdgeListenerState extends State<ScrollEdgeListener> {
         final metrics = notification.metrics;
         switch (widget.edge) {
           case ScrollEdge.start:
-            betweenOffsetAndEdge = metrics.pixels <= metrics.minScrollExtent + widget.edgeOffset;
+            betweenOffsetAndEdge =
+                metrics.pixels <= metrics.minScrollExtent + widget.edgeOffset;
             break;
           case ScrollEdge.end:
-            betweenOffsetAndEdge = metrics.pixels >= metrics.maxScrollExtent - widget.edgeOffset;
+            betweenOffsetAndEdge =
+                metrics.pixels >= metrics.maxScrollExtent - widget.edgeOffset;
             break;
           default:
             throw UnimplementedError();
         }
 
-        if (widget.continuous || (!_wasBetweenOffsetAndEdge && betweenOffsetAndEdge)) {
-          if (_lastTimeListenerCall.add(widget.debounce).isAfter(DateTime.now())) {
+        if (widget.continuous ||
+            (!_wasBetweenOffsetAndEdge && betweenOffsetAndEdge)) {
+          if (_lastTimeListenerCall
+              .add(widget.debounce)
+              .isAfter(DateTime.now())) {
             return widget.dispatch;
           }
 

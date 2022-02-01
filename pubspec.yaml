@@ -1,6 +1,6 @@
 name: scroll_edge_listener
 description: A widget triggers the attached listener based on the scroll position.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/jezsung/scroll_edge_listener.git
 
 environment:
